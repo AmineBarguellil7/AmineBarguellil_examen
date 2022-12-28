@@ -1,7 +1,9 @@
 package com.example.aminebarguellil.entity;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,6 +24,17 @@ public class Parking {
     private String designation;
     private String adresse;
     private int capacite;
+
     @OneToMany(mappedBy = "parking",cascade = CascadeType.ALL)
     List<Zone> zones;
+
+    @Override
+    public String toString() {
+        return "Parking{" +
+                "idParking=" + idParking +
+                ", designation='" + designation + '\'' +
+                ", adresse='" + adresse + '\'' +
+                ", capacite=" + capacite +
+                '}';
+    }
 }

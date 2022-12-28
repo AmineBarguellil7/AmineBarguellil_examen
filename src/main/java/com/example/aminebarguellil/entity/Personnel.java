@@ -27,6 +27,22 @@ public class Personnel {
     private String password;
     @Enumerated(EnumType.STRING)
     private Poste poste;
+
+
     @OneToOne(mappedBy = "responsable")
     private Zone zone;
+
+    @Override
+    public String toString() {
+        return "Personnel{" +
+                "idPersonnel=" + idPersonnel +
+                ", nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", age=" + age +
+                ", dateDeRecrutement=" + dateDeRecrutement +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", poste=" + poste +
+                '}';
+    }
 }

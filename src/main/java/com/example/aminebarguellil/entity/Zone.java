@@ -2,6 +2,7 @@ package com.example.aminebarguellil.entity;
 
 
 
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,10 +23,26 @@ public class Zone {
     private Integer idZone;
     private String ref;
     private float dimension;
+
+
     @ManyToOne(cascade=CascadeType.ALL)
     private  Parking parking;
-    @OneToMany()
+
+
+
+    @OneToMany(fetch = FetchType.EAGER)
     List<Personnel> gardiens;
     @OneToOne
     private Personnel responsable;
+
+    @Override
+    public String toString() {
+        return "Zone{" +
+                "idZone=" + idZone +
+                ", ref='" + ref + '\'' +
+                ", dimension=" + dimension +
+                ", parking=" + parking +
+                ", gardiens=" + gardiens +
+                '}';
+    }
 }
